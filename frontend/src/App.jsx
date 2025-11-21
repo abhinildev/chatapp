@@ -5,7 +5,8 @@ import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import SettingsPage from "./pages/SettingsPage";
 import ProfilePage from "./pages/ProfilePage";
-
+//import VideoCallPage from "./pages/VideoCallPage.jsx";
+import VideoCallPage from "./pages/VideoCallPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuthStore } from "./store/useAuthStore";
 import { useThemeStore } from "./store/useThemeStore";
@@ -43,6 +44,10 @@ const App = () => {
         <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to="/" />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
+          <Route
+    path="/video"
+    element={authUser ? <VideoCallPage /> : <Navigate to="/login" />}
+    />
       </Routes>
 
       <Toaster />
